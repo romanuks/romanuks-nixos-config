@@ -1,6 +1,6 @@
 .PHONY: switch
 switch:
-	nixos-rebuild switch --flake .
+	nixos-rebuild switch --flake .#default
 
 .PHONY: clean
 clean:

@@ -16,7 +16,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/202a940d-3333-4313-9d86-b95ca4251b62";
       fsType = "ext4";
-      options = [ "noatime" "nodiratime" "discard" ]
+      options = [ "noatime" "nodiratime" "discard" ];
     };
 
   fileSystems."/boot" =

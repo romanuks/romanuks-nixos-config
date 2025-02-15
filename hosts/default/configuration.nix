@@ -60,11 +60,8 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    git
     gh
-    git-credential-manager
     gnumake
-    neovim  
     wget
   ];
 
