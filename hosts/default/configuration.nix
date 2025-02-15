@@ -12,6 +12,10 @@
 
       # Home manager from flake
       inputs.home-manager.nixosModules.default
+
+      # Custom modules
+      ../../modules/nixos/hyprland.nix
+      ../../modules/nixos/steam.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -39,7 +43,14 @@
   };
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix = {
+    settings.experimental-features = [ "nix-command" "flakes" ];
+    gc = {
+      automatic = true;
+      dates = "daily";
+      options = "--delete-older-than 7d";
+    };
+  };
 
   users.users.roman = {
     isNormalUser = true;
