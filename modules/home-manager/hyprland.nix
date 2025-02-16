@@ -7,20 +7,23 @@
     portalPackage = null;
 
     settings = {
-      
+      "$mod" = "SUPER";
+
       exec-once = [
         "bash ~/.config/hypr/start.sh" 
       ];
 
-      "$mod" = "SUPER";
-      
       xwayland.force_zero_scaling = true;
+
+      misc = {
+        vrr = 2;
+      };
 
       general = {
         gaps_in = 6;
-	gaps_out = 6;
-	border_size = 2;
-	layout = "dwindle";
+	      gaps_out = 6;
+	      border_size = 2;
+	      layout = "dwindle";
       };
 
       monitor = [
@@ -32,8 +35,9 @@
       };
 
       bind = [
-        "$mod, B, exec, chromium"
-        "$mod, Q, exec, kitty"
+        "$mod, v, togglefloating"
+        "$mod, b, exec, google-chrome-stable"
+        "$mod, q, exec, kitty"
       ];
 
       bindm = [
@@ -46,6 +50,31 @@
   # Hint Electron apps to use Wayland
   home.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  programs.waybar.enable = true;
-  services.dunst.enable = true;
+  # programs = {
+  #   fuzzel.enable = true;
+    
+  #   waybar = {
+  #     enable = true;
+  #     settings = {
+  #       mainBar = {
+  #         layer = "top";
+  #         position = "top";
+  #         modules-left = [ "sway/mode" "wlr/taskbar" ];
+  #         modules-center = [ "custom/hello-from-waybar" ];
+  #         modules-right = [ "mpd" "temperature" "tray" ];
+  #         tray = {
+  #           spacing = 10;
+  #         };
+  #       };
+  #     };
+  #   }; 
+  # };
+
+  services = {
+    # Clipboard
+    cliphist.enable = true;
+  
+    # Notifications
+    # dunst.enable = true;
+  };
 }

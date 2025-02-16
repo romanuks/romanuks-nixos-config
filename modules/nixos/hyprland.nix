@@ -7,9 +7,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    # For notification managers.
-    libnotify
-
     networkmanagerapplet
 
     # Wallpapers
@@ -17,9 +14,6 @@
 
     # App Launcher
     rofi-wayland
-    
-    # Todo move
-    chromium
   ];
 
   xdg.portal = {

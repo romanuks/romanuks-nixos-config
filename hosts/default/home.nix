@@ -6,6 +6,7 @@
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/nvim.nix
     ../../modules/home-manager/hyprland.nix
+    ../../modules/home-manager
   ];
 
   # Home Manager needs a bit of information about you and the paths it should

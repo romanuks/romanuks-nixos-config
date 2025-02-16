@@ -16,6 +16,7 @@
       # Custom modules
       ../../modules/nixos/hyprland.nix
       ../../modules/nixos/steam.nix
+      ../../modules/nixos
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -45,11 +46,11 @@
   # Enable flakes
   nix = {
     settings.experimental-features = [ "nix-command" "flakes" ];
-    gc = {
-      automatic = true;
-      dates = "daily";
-      options = "--delete-older-than 7d";
-    };
+    # gc = {
+    #   automatic = true;
+    #   dates = "daily";
+    #   options = "--delete-older-than 7d";
+    # };
   };
 
   users.users.roman = {
