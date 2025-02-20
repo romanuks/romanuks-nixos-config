@@ -17,15 +17,11 @@
   # Do not change.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
-  home.packages = [
-  ];
+  home.packages = [ ];
 
-  home.file = {
-  };
+  home.file = { };
 
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

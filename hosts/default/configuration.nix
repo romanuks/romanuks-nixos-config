@@ -5,25 +5,24 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [
-      # Include results of the hardware scan
-      ./hardware-configuration.nix
+  imports = [
+    # Include results of the hardware scan
+    ./hardware-configuration.nix
 
-      # Home manager from flake
-      inputs.home-manager.nixosModules.default
+    # Home manager from flake
+    inputs.home-manager.nixosModules.default
 
-      # Custom modules
-      ../../modules/nixos/hyprland.nix
-      ../../modules/nixos/steam.nix
-      ../../modules/nixos
-    ];
+    # Custom modules
+    ../../modules/nixos/hyprland.nix
+    ../../modules/nixos/steam.nix
+    ../../modules/nixos
+  ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos";
+  networking.hostName = "roman";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -57,25 +56,19 @@
     isNormalUser = true;
     description = "roman";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "roman" = import ./home.nix;
-    };
+    users = { "roman" = import ./home.nix; };
   };
 
   services.getty.autologinUser = "roman";
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    gh
-    gnumake
-    wget
-  ];
+  environment.systemPackages = with pkgs; [ gh gnumake wget ];
 
   # Do not change.
   system.stateVersion = "25.05";

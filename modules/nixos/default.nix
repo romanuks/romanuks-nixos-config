@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   fonts.packages = with pkgs; [
@@ -8,10 +8,9 @@
     nerd-fonts._0xproto
   ];
 
-  environment.systemPackages = with pkgs; [
-    google-chrome
-  ];
+  environment.systemPackages = with pkgs; [ google-chrome ags ];
 
+  environment.sessionVariables = { FLAKE = "/home/roman/nixos-config"; };
   programs.nh = {
     enable = true;
     clean.enable = true;

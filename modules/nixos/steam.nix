@@ -1,10 +1,7 @@
 { pkgs, lib, ... }:
 
 {
-
-  environment.systemPackages = with pkgs; [
-    mangohud
-  ];
+  environment.systemPackages = with pkgs; [ mangohud ];
 
   programs = {
     gamescope = {
@@ -19,6 +16,6 @@
       localNetworkGameTransfers.openFirewall = true;
     };
   };
-  
+
   services.getty.autologinUser = "roman";
 }
