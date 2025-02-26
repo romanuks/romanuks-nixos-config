@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  security.polkit.enable = true;
+
   fonts.packages = with pkgs; [
     noto-fonts
     nerd-fonts.fira-code
@@ -8,9 +10,16 @@
     nerd-fonts._0xproto
   ];
 
-  environment.systemPackages = with pkgs; [ google-chrome ags ];
+  environment.systemPackages = with pkgs; [
+    nh
+    helvum
+    pavucontrol
+    google-chrome
+  ];
 
-  environment.sessionVariables = { FLAKE = "/home/roman/nixos-config"; };
+  environment.sessionVariables = {
+    FLAKE = "/home/roman/nixos-config";
+  };
   programs.nh = {
     enable = true;
     clean.enable = true;
@@ -19,5 +28,15 @@
   };
 
   programs.zsh.enable = true;
+
   users.defaultUserShell = pkgs.zsh;
+
+  programs.seahorse.enable = true;
+
+  services.gnome = {
+    gnome-keyring.enable = true;
+    sushi.enable = true;
+  };
+
+  # stylix.enable = true;
 }

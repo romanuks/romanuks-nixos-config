@@ -7,6 +7,10 @@
   };
 
   environment.systemPackages = with pkgs; [
+    hyprpolkitagent
+
+    nautilus
+    
     networkmanagerapplet
 
     # Wallpapers

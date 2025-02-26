@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -44,7 +49,10 @@
 
   # Enable flakes
   nix = {
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     # gc = {
     #   automatic = true;
     #   dates = "daily";
@@ -55,20 +63,29 @@
   users.users.roman = {
     isNormalUser = true;
     description = "roman";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [ ];
   };
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users = { "roman" = import ./home.nix; };
+    users = {
+      "roman" = import ./home.nix;
+    };
   };
 
   services.getty.autologinUser = "roman";
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [ gh gnumake wget ];
+  environment.systemPackages = with pkgs; [
+    gh
+    gnumake
+    wget
+  ];
 
   # Do not change.
   system.stateVersion = "25.05";
