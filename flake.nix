@@ -24,7 +24,6 @@
             ./hosts/default/configuration.nix
             inputs.home-manager.nixosModules.default
             inputs.stylix.nixosModules.stylix
-            { stylix.image = ./modules/home-manager/wp.png; }
           ];
         };
       };

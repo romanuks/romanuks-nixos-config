@@ -1,7 +1,4 @@
-{
-  ...
-}:
-
+{ ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -11,11 +8,11 @@
     settings = {
       "$mod" = "SUPER";
 
-      exec-once = [ 
-        "swww init"
+      exec-once = [
         "nm-applet --indicator"
         "systemctl --user start hyprpolkitagent"
-        ];
+        "gnome-keyring-daemon --start --components=secrets"
+      ];
 
       xwayland.force_zero_scaling = true;
 
@@ -28,6 +25,10 @@
         gaps_out = 6;
         border_size = 2;
         layout = "dwindle";
+      };
+
+      dwindle = {
+        smart_split = true;
       };
 
       monitor = [ ", 3440x1440@144, auto, 1" ];

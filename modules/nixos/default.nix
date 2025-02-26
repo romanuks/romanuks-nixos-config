@@ -35,14 +35,39 @@
 
   programs.seahorse.enable = true;
 
-  services.gnome = {
-    gnome-keyring.enable = true;
-    sushi.enable = true;
-  };
+  services.gnome.gnome-keyring.enable = true;
 
   stylix = {
+    image = ./wp.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
     enable = true;
     autoEnable = true;
+    polarity = "dark";
+    opacity.terminal = 0.8;
+    cursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Ice";
+      size = 14;
+    };
+    fonts = {
+      monospace = {
+        package = pkgs.nerd-fonts.jetbrains-mono;
+        name = "JetBrains Mono";
+      };
+      sansSerif = {
+        package = pkgs.montserrat;
+        name = "Montserrat";
+      };
+      serif = {
+        package = pkgs.montserrat;
+        name = "Montserrat";
+      };
+      sizes = {
+        applications = 12;
+        terminal = 15;
+        desktop = 11;
+        popups = 12;
+      };
+    };
   };
 }

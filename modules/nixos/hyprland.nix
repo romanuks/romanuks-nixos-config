@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   programs.hyprland = {
@@ -8,21 +13,23 @@
 
   environment.systemPackages = with pkgs; [
     hyprpolkitagent
-
     nautilus
-    
     networkmanagerapplet
-
-    # Wallpapers
-    swww
-
-    # App Launcher
-    rofi-wayland
+    hyprcursor
   ];
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    wlr.enable = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal
+    ];
   };
 
   security.rtkit.enable = true;

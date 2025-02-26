@@ -2,10 +2,12 @@
 
 {
   services.gnome-keyring.enable = true;
+  home.packages = [
+    pkgs.youtube-music
+  ];
 
-  programs = {
-    btop.enable = true;
-    vscode = {
+programs.btop.enable = true;
+    programs.vscode = {
       enable = true;
       package = pkgs.vscode.fhsWithPackages (
         ps: with ps; [
@@ -14,7 +16,6 @@
         ]
       );
     };
-  };
   
   dconf = {
     settings = {

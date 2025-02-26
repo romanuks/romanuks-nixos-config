@@ -1,21 +1,20 @@
-{ pkgs, lib, ... }:
-
-{
-  environment.systemPackages = with pkgs; [ mangohud ];
-
+{pkgs, ...}: {
   programs = {
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
-
     steam = {
       enable = true;
       remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      localNetworkGameTransfers.openFirewall = true;
+      dedicatedServer.openFirewall = false;
+      gamescopeSession.enable = true;
+      extraCompatPackages = [pkgs.proton-ge-bin];
+    };
+
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+      args = [
+        "--rt"
+        "--expose-wayland"
+      ];
     };
   };
-
-  services.getty.autologinUser = "roman";
 }
