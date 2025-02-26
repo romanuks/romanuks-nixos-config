@@ -1,16 +1,9 @@
-{ pkgs, config, ... }:
+{ ... }:
 
 {
-  programs.starship = { enable = true; };
+  programs.starship.enable = true;
 
-  programs.kitty = {
-    enable = true;
-
-    settings = {
-      font_family = ''family="Fira Code"'';
-      cursor_shape = "beam";
-    };
-  };
+  programs.kitty.enable = true;
 
   programs.zsh = {
     enable = true;

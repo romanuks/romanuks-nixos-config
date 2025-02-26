@@ -15,11 +15,7 @@
       );
     };
   };
-
-  # stylix = {
-  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/3024.yaml";
-  #   image = null;
-  # };
+  
   # qt = {
   #   enable = true;
   #   platformTheme.name = "gtk";
