@@ -19,7 +19,9 @@
 
   environment.sessionVariables = {
     FLAKE = "/home/roman/nixos-config";
+    ADW_DISABLE_PORTAL = "1";
   };
+
   programs.nh = {
     enable = true;
     clean.enable = true;

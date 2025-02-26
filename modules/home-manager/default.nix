@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   services.gnome-keyring.enable = true;
@@ -16,22 +16,17 @@
     };
   };
   
-  # qt = {
-  #   enable = true;
-  #   platformTheme.name = "gtk";
-  # };
-  # gtk = {
-  #   enable = true;
-  #   theme.name = "Adwaita-dark";
-  #   gtk3.extraConfig = {
-  #     Settings = ''
-  #       gtk-application-prefer-dark-theme=1
-  #     '';
-  #   };
-  #   gtk4.extraConfig = {
-  #     Settings = ''
-  #       gtk-application-prefer-dark-theme=1
-  #     '';
-  #   };
-  # };
+  dconf = {
+    settings = {
+      "org/gnome/desktop/interface" = {
+	      color-scheme = lib.mkForce "prefer-dark";
+      };
+    };
+  };
+
+  gtk = {
+    enable = true;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
+  };
 }
