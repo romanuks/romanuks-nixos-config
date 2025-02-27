@@ -36,6 +36,7 @@
   programs.seahorse.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
+  services.playerctld.enable = true;
 
   stylix = {
     image = ./wp.jpg;

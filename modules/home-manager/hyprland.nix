@@ -65,6 +65,6 @@
     cliphist.enable = true;
 
     # Notifications
-    # dunst.enable = true;
+    dunst.enable = true;
   };
 }
